@@ -7,26 +7,27 @@ export default function Peoples(){
     let [people, setPeople] = useState([]);
 
     useEffect(()=>{
-        fetch('https://swapi.dev/api/people')
+        fetch('https://swapi.dev/api/people/')
             .then(value => value.json())
             .then(value => {
-                setPeoples(value);
+                setPeoples(value.results);
+                console.log(value);
             });
     }, []);
-
     const infoPeople = (item) => {
         setPeople(item);
+        console.log('sfsd')
     };
 
     return(
-        <div className={'peoples'}>
+        <div>
+            <h2>star wars</h2>
             {peoples.map((people, index)=>
             <People
             key={index}
             item={people}
             infoPeople={infoPeople}
             />)}
-            {<div>name: {people.name}</div>}
         </div>
-    )
+    );
 }

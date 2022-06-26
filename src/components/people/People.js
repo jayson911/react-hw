@@ -1,9 +1,11 @@
-export default  function ({item, infoPeople}){
+export default  function People({item}){
 
     return(
         <div className={'peoplesInfo'}>
-            {item.id}
-            {item.name}
+            Имя:{item.name} <br/>
+            Рост: {item.height}<br/><br/><br/>
+
+
         </div>
     )
 }
